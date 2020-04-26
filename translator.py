@@ -105,8 +105,8 @@ while final_word != word:
                     methods_profit = [str(Stock_Symbol) + " " + str(Date_of_trade), Trade_Type,
                                       str(one_one_partial_profit)
                                       + "$", str(remainder_one_one_profit) + "$",
-                                      str("%.2f" % (float(one_one_partial_profit) + float(remainder_one_one_profit))) +
-                                      "$", " ", str(Stock_Symbol) + " " + str(Date_of_trade), Trade_Type,
+                                      str("%.2f" % (float(one_one_partial_profit) + float(remainder_one_one_profit)))
+                                      + "$", " ", str(Stock_Symbol) + " " + str(Date_of_trade), Trade_Type,
                                       str(one_one_full_profit) + "$", " ", str(Stock_Symbol) + " " + str(Date_of_trade),
                                       Trade_Type, str(two_one_partial_profit) + "$", "0",
                                       str(two_one_partial_profit) + "$",
@@ -125,21 +125,21 @@ while final_word != word:
 
                     # This "if" is for fully successfull 2:1 trades. I will calculate and print results.
 
-                    four_one_partial_profit = "%.2f" % ((((Trigger - Stop) * 4 + Trigger) - Executed_trigger) * 0.25 *
-                                                        Shares)
-                    four_one_full_profit = "%.2f" % ((((Trigger - Stop) * 4 + Trigger) - Executed_trigger) * 0.5 *
-                                                     Shares)
+                    four_one_partial_profit = "%.2f" % ((((Trigger - Stop) * 4 + Trigger) - Executed_trigger) * 0.25
+                                                        * Shares)
+                    four_one_full_profit = "%.2f" % ((((Trigger - Stop) * 4 + Trigger) - Executed_trigger) * 0.5
+                                                     * Shares)
                     remainder_four_one = float(input("Where did you cover remainder of 1:2 trade: "))
                     remainder_four_one_profit = "%.2f" % ((remainder_four_one - Executed_trigger) * 0.25 * Shares)
 
                     print("All trades concluded:")
-                    print("If you traded 1:1 75% 25% you earned " + str(one_one_partial_profit) + "$ + " +
-                          str(remainder_one_one_profit) + "$")
+                    print("If you traded 1:1 75% 25% you earned " + str(one_one_partial_profit) + "$ + "
+                          + str(remainder_one_one_profit) + "$")
                     print("If you traded 1:1 100% you earned " + str(one_one_full_profit) + "$")
-                    print("If you traded 1:2 50% 50% you earned " + str(two_one_partial_profit) + "$ + " +
-                          str(four_one_full_profit) + "$.")
-                    print("If you traded 1:2 50% 25% 25% you earned " + str(two_one_partial_profit) + "$ + " +
-                          str(four_one_partial_profit) + "$ + " + str(remainder_four_one_profit) + "$.")
+                    print("If you traded 1:2 50% 50% you earned " + str(two_one_partial_profit) + "$ + "
+                          + str(four_one_full_profit) + "$.")
+                    print("If you traded 1:2 50% 25% 25% you earned " + str(two_one_partial_profit) + "$ + "
+                          + str(four_one_partial_profit) + "$ + " + str(remainder_four_one_profit) + "$.")
                     partial_methods = ["1:1 75% 25%", "1st Partial 75%", "2nd Partial 25%", "Total Profi/Loss", " ",
                                        "1:1 100%", "Cover", " ", "2:1 50% 50%", "1st Partial 50%", "2nd Partial 50%",
                                        "Total Profit/Loss", " ", "2:1 50% 25% 25%", "1st Partial 50%",
@@ -156,12 +156,8 @@ while final_word != word:
                                       " ", str(Stock_Symbol) + " " + str(Date_of_trade), Trade_Type,
                                       str(two_one_partial_profit) + "$", str(four_one_partial_profit) + "$",
                                       str(remainder_four_one_profit) + "$",
-                                      str("%.2f" % (float(two_one_partial_profit) +
-                                                    float(four_one_partial_profit) +
-                                                    float(remainder_four_one_profit)
-                                                    ))
-                                      + "$"
-                                      ]
+                                      str("%.2f" % (float(two_one_partial_profit) + float(four_one_partial_profit)
+                                                    + float(remainder_four_one_profit))) + "$"]
                     with open(os.path.join("C:\\", "Users", "amirs", "projects", "Trading-Results",
                                            "PartialProfitPython.csv"), "a") as f:
                         # f.write(",".join(partial_methods))
@@ -182,13 +178,10 @@ while final_word != word:
             loss = abs(Executed_stop - Executed_trigger) * Shares
             print("You lost " + str("%.2f" % loss) + "$ on all trades")
             methods_profit = [str(Stock_Symbol) + " " + str(Date_of_trade), Trade_Type, "0", "0", "-" + str(loss) + "$",
-                              " ",
-                              str(Stock_Symbol) + " " + str(Date_of_trade), Trade_Type, "-" + str(loss) + "$", " ",
+                              " ", str(Stock_Symbol) + " " + str(Date_of_trade), Trade_Type, "-" + str(loss) + "$", " ",
                               str(Stock_Symbol) + " " + str(Date_of_trade), Trade_Type, "0", "0", "-" + str(loss) + "$",
-                              " ",
-                              str(Stock_Symbol) + " " + str(Date_of_trade), Trade_Type, "0", "0", "0",
-                              "-" + str(loss) + "$"
-                              ]
+                              " ", str(Stock_Symbol) + " " + str(Date_of_trade), Trade_Type, "0", "0", "0", "-"
+                              + str(loss) + "$"]
             with open(os.path.join("C:\\", "Users", "amirs", "projects", "Trading-Results", "PartialProfitPython.csv"),
                       "a") as f:
                 # f.write(",".join(partial_methods))
@@ -207,19 +200,18 @@ while final_word != word:
             if two_one_partial == "no":
                 Executed_stop = float(input("When did Stop execute?"))
                 loss = "%.2f" % (abs(Executed_stop - Executed_trigger) * Shares)
-                print("If you traded 1:1 75% 25% you earned " + str(one_one_partial_profit) + "$ + " +
-                      str(remainder_one_one_profit) + "$")
+                print("If you traded 1:1 75% 25% you earned " + str(one_one_partial_profit) + "$ + "
+                      + str(remainder_one_one_profit) + "$")
                 print("If you traded 1:1 100% you earned " + str(one_one_full_profit) + "$")
                 print("Your 2:1 trades have lost: " + loss + "$")
                 methods_profit = [str(Stock_Symbol) + " " + str(Date_of_trade), Trade_Type,
                                   str(one_one_partial_profit) + "$",
-                                  str(remainder_one_one_profit) + "$", str("%.2f" % (float(one_one_partial_profit) +
-                                                                                     float(remainder_one_one_profit))) +
-                                  "$", " ", str(Stock_Symbol) + " " + str(Date_of_trade), Trade_Type,
+                                  str(remainder_one_one_profit) + "$", str("%.2f" % (float(one_one_partial_profit)
+                                                                                     + float(remainder_one_one_profit)))
+                                  + "$", " ", str(Stock_Symbol) + " " + str(Date_of_trade), Trade_Type,
                                   str(one_one_full_profit) + "$", " ", str(Stock_Symbol) + " " + str(Date_of_trade),
-                                  Trade_Type, "0", "0", "-" + str(loss) + "$", " ", str(Stock_Symbol) + " " +
-                                  str(Date_of_trade), Trade_Type, "0", "0", "0", "-" + str(loss) + "$"
-                                  ]
+                                  Trade_Type, "0", "0", "-" + str(loss) + "$", " ", str(Stock_Symbol) + " "
+                                  + str(Date_of_trade), Trade_Type, "0", "0", "0", "-" + str(loss) + "$"]
                 with open(os.path.join("C:\\", "Users", "amirs", "projects", "Trading-Results",
                                        "PartialProfitPython.csv"), "a") as f:
                     # f.write(",".join(partial_methods))
@@ -235,8 +227,8 @@ while final_word != word:
                     # if trade didn't make it to 1:4 = all positions covered. Printing results.
 
                     print("All trades concluded:")
-                    print("If you traded 1:1 75% 25% you made " + str(one_one_partial_profit) + "$ + " +
-                          str(remainder_one_one_profit) + "$")
+                    print("If you traded 1:1 75% 25% you made " + str(one_one_partial_profit) + "$ + "
+                          + str(remainder_one_one_profit) + "$")
                     print("If you traded 1:1 100% you made " + str(one_one_full_profit) + "$")
                     print("If you traded 2:1 variation you made " + str(two_one_partial_profit) + "$")
                     methods_profit = [str(Stock_Symbol) + " " + str(Date_of_trade), Trade_Type,
@@ -262,38 +254,34 @@ while final_word != word:
 
                     # This "if" is for fully successful 2:1 trades. I will calculate and print results.
 
-                    four_one_partial_profit = "%.2f" % ((Executed_trigger - (Trigger - (Stop - Trigger) * 4)) * 0.25 *
-                                                        Shares)
-                    four_one_full_profit = "%.2f" % ((Executed_trigger - (Trigger - (Stop - Trigger) * 4)) * 0.5 *
-                                                     Shares)
+                    four_one_partial_profit = "%.2f" % ((Executed_trigger - (Trigger - (Stop - Trigger) * 4)) * 0.25
+                                                        * Shares)
+                    four_one_full_profit = "%.2f" % ((Executed_trigger - (Trigger - (Stop - Trigger) * 4)) * 0.5
+                                                     * Shares)
                     remainder_four_one = float(input("Where did you cover remainder of 1:2 trade: "))
                     remainder_four_one_profit = "%.2f" % ((Executed_trigger - remainder_four_one) * 0.25 * Shares)
 
                     print("All trades concluded:")
-                    print("If you traded 1:1 75% 25% you made " + str(one_one_partial_profit) + "$ + " +
-                          str(remainder_one_one_profit) + "$")
+                    print("If you traded 1:1 75% 25% you made " + str(one_one_partial_profit) + "$ + "
+                          + str(remainder_one_one_profit) + "$")
                     print("If you traded 1:1 100% you made " + str(one_one_full_profit) + "$")
-                    print("If you traded 1:2 50% 50% you made " + str(two_one_partial_profit) + "$ + " +
-                          str(four_one_full_profit) + "$.")
-                    print("If you traded 1:2 50% 25% 25% you made " + str(two_one_partial_profit) + "$ + " +
-                          str(four_one_partial_profit) + "$ + " + str(remainder_four_one_profit) + "$.")
+                    print("If you traded 1:2 50% 50% you made " + str(two_one_partial_profit) + "$ + "
+                          + str(four_one_full_profit) + "$.")
+                    print("If you traded 1:2 50% 25% 25% you made " + str(two_one_partial_profit) + "$ + "
+                          + str(four_one_partial_profit) + "$ + " + str(remainder_four_one_profit) + "$.")
                     methods_profit = [str(Stock_Symbol) + " " + str(Date_of_trade), Trade_Type,
                                       str(one_one_partial_profit)
                                       + "$", str(remainder_one_one_profit) + "$",
-                                      str("%.2f" % (float(one_one_partial_profit) + float(
-                                          remainder_one_one_profit))) + "$",
-                                      " ", str(Stock_Symbol) + " " + str(Date_of_trade), Trade_Type,
+                                      str("%.2f" % (float(one_one_partial_profit) + float(remainder_one_one_profit)))
+                                      + "$", " ", str(Stock_Symbol) + " " + str(Date_of_trade), Trade_Type,
                                       str(one_one_full_profit) + "$", " ", str(Stock_Symbol) + " " + str(Date_of_trade),
                                       Trade_Type, str(two_one_partial_profit) + "$", str(four_one_full_profit) + "$",
                                       str("%.2f" % (float(two_one_partial_profit) + float(four_one_full_profit))) + "$",
                                       " ", str(Stock_Symbol) + " " + str(Date_of_trade), Trade_Type,
                                       str(two_one_partial_profit) + "$", str(four_one_partial_profit) + "$",
                                       str(remainder_four_one_profit) + "$",
-                                      str("%.2f" % (float(two_one_partial_profit) +
-                                                    float(four_one_partial_profit) +
-                                                    float(remainder_four_one_profit)
-                                                    )) + "$"
-                                      ]
+                                      str("%.2f" % (float(two_one_partial_profit) + float(four_one_partial_profit)
+                                                    + float(remainder_four_one_profit))) + "$"]
                     with open(os.path.join("C:\\", "Users", "amirs", "projects", "Trading-Results",
                                            "PartialProfitPython.csv"), "a") as f:
                         # f.write(",".join(partial_methods))
